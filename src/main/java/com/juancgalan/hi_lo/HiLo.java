@@ -7,7 +7,13 @@ public class HiLo {
     HiLo hilo = new HiLo();
     int number = hilo.randomBetweenInts(1, 100);
     int guess = hilo.askNumber();
-    System.out.println(hilo.checkGuess(guess, number));
+    System.out.print(hilo.checkGuess(guess, number));
+    while (guess != number) {
+      System.out.println("Try again.");
+      System.out.print(hilo.checkGuess(guess, number));
+      guess = hilo.askNumber();
+    }
+    System.out.println("You win!");
   }
 
   private int randomBetweenInts(int x1, int x2) {
