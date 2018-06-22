@@ -4,12 +4,20 @@ import java.util.Scanner;
 
 public class HiLo {
   public static void main(String... args) {
-    double f = Math.random() / Math.nextDown(1.0);
-    int number = (int) (100 * f);
-    Scanner scan  = new Scanner(System.in);
-    int guess = 0;
-    System.out.println("Guess a number between 1 and 100");
-    guess = scan.nextInt();
+    HiLo hilo = new HiLo();
+    int number = hilo.randomBetweenInts(1, 100);
+    int guess = hilo.askNumber();
 
+  }
+
+  private int randomBetweenInts(int x1, int x2) {
+    double f = Math.random() / Math.nextDown(1.0);
+    return (int) (x1 * (1.0 - f) + x2 * f);
+  }
+
+  private int askNumber() {
+    Scanner scan  = new Scanner(System.in);
+    System.out.println("Guess a number between 1 and 100");
+    return scan.nextInt();
   }
 }
