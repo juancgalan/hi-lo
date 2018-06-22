@@ -26,7 +26,7 @@ public class HiLoTest {
   public void checkGuessShouldDetectCorrect() {
     HiLo hilo = new HiLo();
     String expected = "It's correct!";
-    String actual = hilo.checkGuess(7, 5);
+    String actual = hilo.checkGuess(5, 5);
     assertThat(actual, equalTo(expected));
   }
 }
