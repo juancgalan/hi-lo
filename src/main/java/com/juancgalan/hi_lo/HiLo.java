@@ -5,13 +5,17 @@ import java.util.Scanner;
 public class HiLo {
   public static void main(String... args) {
     HiLo hilo = new HiLo();
-    int number = hilo.randomBetweenInts(1, 100);
-    int guess = hilo.askNumber();
-    System.out.print(hilo.checkGuess(guess, number));
+    hilo.playGame();
+  }
+
+  private void playGame() {
+    int number = randomBetweenInts(1, 100);
+    int guess = askNumber();
+    System.out.print(checkGuess(guess, number));
     while (guess != number) {
       System.out.println("Try again.");
-      System.out.print(hilo.checkGuess(guess, number));
-      guess = hilo.askNumber();
+      System.out.print(checkGuess(guess, number));
+      guess = askNumber();
     }
     System.out.println("You win!");
   }
