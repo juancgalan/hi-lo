@@ -5,18 +5,25 @@ import java.util.Scanner;
 public class HiLo {
   public static void main(String... args) {
     HiLo hilo = new HiLo();
-    hilo.playGame();
+    hilo.play();
+  }
+
+  public void play() {
+    playGame();
+    while(askForAnotherGame().equals("y")) {
+      playGame();
+    }
+  }
+
+  private String askForAnotherGame() {
     Scanner scan  = new Scanner(System.in);
     System.out.println("Would you like to play again (y/n)?");
     String anotherGame = scan.nextLine();
-    while(anotherGame.trim().equals("y")) {
-      hilo.playGame();
-      anotherGame = "";
-      while(!anotherGame.trim().equals("y") || !anotherGame.trim().equals("n")) {
-        System.out.println("Would you like to play again (y/n)?");
-        anotherGame = scan.nextLine();
-      }
+    while(!anotherGame.trim().equals("y") || !anotherGame.trim().equals("n")) {
+      System.out.println("Would you like to play again (y/n)?");
+      anotherGame = scan.nextLine();
     }
+    return anotherGame.trim();
   }
 
   private void playGame() {
