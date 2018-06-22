@@ -20,4 +20,13 @@ public class HiLo {
     System.out.println("Guess a number between 1 and 100");
     return scan.nextInt();
   }
+
+  public String checkGuess(int guess, int expected) {
+    if (guess < expected)
+      return "It's too low.";
+    else if (guess > expected)
+      return "It's too high.";
+    else
+      return "It's correct!";
+  }
 }
